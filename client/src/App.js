@@ -1,20 +1,26 @@
 import { Routes, Route } from 'react-router-dom';
 import Home from './components/shared/Home';
 import About from './components/shared/About';
-import NoMatch from './components/shared/NoMatch';
-import Navbar from './components/shared/Navbar';
-import Lists from './components/lists/Lists';
+import Nomatch from './components/shared/Nomatch';
+import Billboards from './components/billboards/Billboards';
+import MainNavbar from './components/shared/MainNavbar';
 
 const App = () => (
   <>
-    <Navbar />
+    <MainNavbar />
     <Routes>
-      <Route path="/" element={<Home /> />
-      <Route path="/about" element={<About /> />
-      <Route path="/list" element={<List /> />
-      <Route path="*" element={<NoMatch /> />
+      <Route path='/' element={<Home />} />
+      <Route path='/about' element={<About />} />
+      <Route path='/about' element={<About />} />
+      <Route path='/billboards/Billboards' element={<Billboards />} />
+      <Route path='/*' element={<Nomatch />} />
     </Routes>
   </>
 )
+// const App = () => {
+//   return (
+
+//   )
+// }
 
 export default App;

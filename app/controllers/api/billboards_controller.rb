@@ -16,8 +16,7 @@ before_action :set_billboard, only: [:show, :update, :destroy]
     if @billboard.save
       render json: @billboard
     else 
-      render json: {errors: @billboard.errors}, status:
-      :unprocessable_entity
+      render json: {errors: @billboard.errors}, status: :unprocessable_entity
     end
   end
 
@@ -26,29 +25,21 @@ before_action :set_billboard, only: [:show, :update, :destroy]
     if @billboard.update(billboard_params)
       render json: @billboard
     else
-      render json: { errors: @billboard.errors}, status:
-      :unprocessable_entity 
+      render json: { errors: @billboard.errors}, status: :unprocessable_entity 
       end
-
   end
 
   def destroy
-    def destroy
-      # @billboard = Billboard.find(params[:id])
       @billboard.destroy
       render json: { message: 'billboard deleted' }
-      or
-      Billboard.find(params[:id]).destroy
-      render json: { message: 'billboard deleted' }
-    end
   end
 
   private
-def set_billboard
-  @billboard = Billboard.find(params[:id])
-
-  def billboard_params
-    params.require(:billboard).permit(:artist_name,:genre)
-  
+  def set_billboard
+    @billboard = Billboard.find(params[:id])
   end
-end
+    
+    def billboard_params
+      params.require(:billboard).permit(:artist_name,:genre)
+    end
+  end
