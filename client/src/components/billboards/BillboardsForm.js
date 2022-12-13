@@ -1,35 +1,44 @@
-import { useState } from "react";
-import Billboards from "./Billboards";
+import { useEffect, useState } from "react";
 
-const BillboardsForm = ({ addBillboards})  => {
-  const [billboards, setBillboards] = useState ({genre: '', artist_name: ''})
 
+const BillboardsForm = ({ addBillboards, id, artist_name, genre, updateBillbords, setEdit})  => {
+  const [billboard, setBillboards] = useState ({artist_name: '', genre: ''})
+
+ useEffect( () => {
+  if (id) {
+    setBillboards({artist_name, genre})
+  }
+ },[])
  
+
 const handleSubmit = (e) => {
   e.preventDefault()
-  addBillboards(billboards)
-  setBillboards({genre: '', artist_name: ''})
+  if (id) {
+updateBillbords(id,billboard)
+setEdit(false)
+  } else {
+    addBillboards(billboard)
+  }
+  setBillboards({artist_name:'', genre:''})
 
 }
 
 return (
   <>
-    <h1> Artist</h1>
+    <h1>{id ? 'Update' : 'Create'}Artist</h1>
     <form onSubmit={handleSubmit}>
       <label>Artist</label>
       <input 
         name='artist_name'
-        value={billboards.artist_name}
-        onChange={(e) => setBillboards({ ...billboards, artist_name: e.target.value })}
+        value={billboard.artist_name}
+        onChange={(e) => setBillboards({ ...billboard, artist_name: e.target.value })}
         required
       />
       <label>Genre</label>
-      </form>
-      <form>
       <input
         name='genre'
-        value={Billboards.genre}
-        onChange={(e) => setBillboards({ ...billboards, genre: e.target.value })}
+        value={billboard.genre}
+        onChange={(e) => setBillboards({ ...billboard, genre: e.target.value })}
         required
       />
       <button type='submit'>Submit</button>
