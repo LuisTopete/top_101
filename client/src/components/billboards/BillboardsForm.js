@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 
 
-const BillboardsForm = ({ addBillboards, id, artist_name, genre, updateBillbords, setEdit})  => {
-  const [billboard, setBillboards] = useState ({artist_name: '', genre: ''})
+const BillboardsForm = ({ addBillboards, id, artist_name, genre, updateBillboards, setEdit})  => {
+  const [billboard, setBillboards] = useState({artist_name: '', genre: ''})
 
  useEffect( () => {
   if (id) {
@@ -14,12 +14,12 @@ const BillboardsForm = ({ addBillboards, id, artist_name, genre, updateBillbords
 const handleSubmit = (e) => {
   e.preventDefault()
   if (id) {
-updateBillbords(id,billboard)
+updateBillboards(id ,billboard)
 setEdit(false)
   } else {
     addBillboards(billboard)
   }
-  setBillboards({artist_name:'', genre:''})
+  setBillboards({ artist_name:'', genre:''})
 
 }
 

@@ -11,8 +11,9 @@ const [editing, setEdit] = useState(false)
   editing ? 
   <>
   <BillboardsForm
-  id={artist_name}
-  title={artist_name}
+  id={id}
+  artist_name={artist_name}
+  genre={genre}
   updateBillboards={updateBillboards}
   setEdit={setEdit}
   />
@@ -23,20 +24,14 @@ const [editing, setEdit] = useState(false)
   :
   <>
   <h3>
-    {artist_name}
+    {artist_name} {genre}
   </h3>
     <button onClick={() => setEdit(true)}>
-    Edit
+      Edit
     </button>
-
-    <button onClick={() => deleteBillboards(id)}>delete</button>
-    <h4>
-    {genre}
-    </h4>
-    <button onClick={() => setEdit(true)}>
-    Edit
-    </button>
-    <button>delete</button>
+    <button onClick={() => deleteBillboards(id)}>
+      Delete
+     </button>
     </>
 }
   </>

@@ -12,14 +12,14 @@ const Billboards = () => {
     .catch( err => console.log(err))
   }, [])
 
-  const addBillboards = (billboards) =>{
-    axios.post('/api/billboards', { billboards} )
-    .then(res => setBillboards(...billboards, res.data))
+  const addBillboards = (billboard) =>{
+    axios.post('/api/billboards', { billboard} )
+    .then(res => setBillboards([...billboards, res.data]))
     .catch( err => console.log(err))
   }
 
-  const updateBillboards = (id, billboards) => {
-  axios.put(`/api/billboards/${id}`,{billboards})
+  const updateBillboards = (id, billboard) => {
+  axios.put(`/api/billboards/${id}`,{billboard})
   .then(res => {
     const newupdatedBillboards = billboards.map ( s =>{
       if ( s.id === id ) {
@@ -46,9 +46,9 @@ return (
   Billboard
   </h1>
   <BillboardsLists
-   billboards= {billboards}
-   updateBillboards= {updateBillboards}
-   deleteBillboards= {deleteBillboards}
+   billboards={billboards}
+   updateBillboards={updateBillboards}
+   deleteBillboards={deleteBillboards}
   />
     </>
   )
