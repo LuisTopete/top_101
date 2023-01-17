@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 
 const BillboardsForm = ({ addBillboards, id, artist_name, genre, updateBillboards, setEdit})  => {
-  const [billboard, setBillboards] = useState({artist_name: '', genre: ''})
+  const [billboard, setBillboards] = useState({artist_name:'', genre:''})
 
  useEffect( () => {
   if (id) {

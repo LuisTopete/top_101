@@ -1,5 +1,5 @@
 import { useState } from "react";
-import BillboardsForm from "./BillboardsForm";
+import BillboardsForm from "./BillboardForm";
 const BillboardsShow = ({id, genre, artist_name, updateBillboards, deleteBillboards}) => {
 
 const [editing, setEdit] = useState(false)

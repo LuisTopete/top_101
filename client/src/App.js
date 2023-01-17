@@ -16,10 +16,5 @@ const App = () => (
     </Routes>
   </>
 )
-// const App = () => {
-//   return (
-
-//   )
-// }
 
 export default App;
