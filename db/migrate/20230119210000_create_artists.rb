@@ -1,8 +1,8 @@
-class CreateArists < ActiveRecord::Migration[7.0]
+class CreateArtists < ActiveRecord::Migration[7.0]
   def change
-    create_table :arists do |t|
+    create_table :artists do |t|
       t.string :artist_name
-      t.text :desc
+      t.string :desc
       t.string :plays_artist
       t.belongs_to :billboard, null: false, foreign_key: true
 

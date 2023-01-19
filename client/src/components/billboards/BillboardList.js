@@ -1,10 +1,10 @@
 import BillboardShow from "./BillboardsShow"
 const BillboardsLists = ({billboards, updateBillboards, deleteBillboards}) => (
   <>
-  { billboards.map( s => 
+  { billboards.map( b => 
     <BillboardShow
-    key={s.id}
-    {...s}
+    key={b.id}
+    {...b}
     updateBillboards={updateBillboards}
     deleteBillboards={deleteBillboards}
     />

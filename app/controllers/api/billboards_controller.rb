@@ -7,7 +7,6 @@ before_action :set_billboard, only: [:show, :update, :destroy]
   end
 
   def show
-    # @billboard = Billboard.find(params[:id])
     render json: @billboard
   end
 
@@ -21,7 +20,6 @@ before_action :set_billboard, only: [:show, :update, :destroy]
   end
 
   def update
-    # @billboard = Billboard.find(params[:id])
     if @billboard.update(billboard_params)
       render json: @billboard
     else
@@ -30,16 +28,16 @@ before_action :set_billboard, only: [:show, :update, :destroy]
   end
 
   def destroy
-      @billboard.destroy
-      render json: { message: 'billboard deleted' }
+    @billboard.destroy
+    render json: { message: 'Billboard deleted' }
   end
 
-  private
+  private 
+  def billboard_params
+    params.require(:billboard).permit(:artist_name, :genre) 
+  end
+
   def set_billboard
     @billboard = Billboard.find(params[:id])
   end
-    
-    def billboard_params
-      params.require(:billboard).permit(:artist_name,:genre)
-    end
-  end
+end

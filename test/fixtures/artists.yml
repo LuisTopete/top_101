@@ -2,12 +2,12 @@
 
 one:
   artist_name: MyString
-  desc: MyText
+  desc: MyString
   plays_artist: MyString
   billboard: one
 
 two:
   artist_name: MyString
-  desc: MyText
+  desc: MyString
   plays_artist: MyString
   billboard: two

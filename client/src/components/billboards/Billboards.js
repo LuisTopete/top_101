@@ -35,7 +35,7 @@ const Billboards = () => {
 const deleteBillboards = (id) => {
   axios.delete(`/api/billboards/${id}`)
   .then(res => {
-    setBillboards( billboards.filter( s=> s.id !== id))
+    setBillboards( billboards.filter( b=> b.id !== id))
   })
   .catch( err => console.log(err))
 }
