@@ -1,5 +1,7 @@
 import { useState } from "react";
 import BillboardsForm from "./BillboardForm";
+import { Link } from 'react-router-dom';
+
 const BillboardsShow = ({id, genre, artist_name, updateBillboards, deleteBillboards}) => {
 
 const [editing, setEdit] = useState(false)
@@ -32,6 +34,14 @@ const [editing, setEdit] = useState(false)
     <button onClick={() => deleteBillboards(id)}>
       Delete
      </button>
+     <Link 
+            to={`/${id}/artists`}
+            state={{ artist_name }} // pass in read only info through the link
+          >
+            <button>
+              ArtistName
+            </button>
+          </Link>
     </>
 }
   </>

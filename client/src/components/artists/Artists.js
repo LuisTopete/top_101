@@ -8,7 +8,7 @@ const Artists = () => {
   const [artists, setArtists] = useState([])
   const { billboardId } = useParams()
   const location = useLocation()
-  const { title } = location.state
+  const { artist_name } = location.state
 
   useEffect( () => {
     axios.get(`/api/billboards/${billboardId}/artists`)
@@ -45,7 +45,7 @@ const Artists = () => {
   return (
     <>
       <ArtistForm addArtist={addArtist} />
-      <h1>{title} Artists</h1>
+      <h1>{artist_name} Artists</h1>
       <ArtistList 
         artists={artists}
         updateArtist={updateArtist}
