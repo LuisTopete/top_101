@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import BillboardsForm from './BillboardsForm';
-import BillboardsLists from './BillboardsLists';
+import BillboardForm from './BillboardForm';
+import BillboardList from './BillboardList';
 
 const Billboards = () => {
   const [billboards, setBillboards] = useState ([])
@@ -35,17 +35,17 @@ const Billboards = () => {
 const deleteBillboards = (id) => {
   axios.delete(`/api/billboards/${id}`)
   .then(res => {
-    setBillboards( billboards.filter( s=> s.id !== id))
+    setBillboards( billboards.filter( b=> b.id !== id))
   })
   .catch( err => console.log(err))
 }
 return (
 <>
-<BillboardsForm addBillboards = {addBillboards} />
+<BillboardForm addBillboards = {addBillboards} />
   <h1>TOP100
   Billboard
   </h1>
-  <BillboardsLists
+  <BillboardList
    billboards={billboards}
    updateBillboards={updateBillboards}
    deleteBillboards={deleteBillboards}
