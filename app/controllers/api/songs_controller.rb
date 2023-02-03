@@ -1,47 +1,49 @@
-class Api::SongsController < ApplicationController
-  before_action :set_billboard
-  before_action :set_artist, only: [:show, :update, :destroy]
+class Api::ArtistsController < ApplicationController
+  
+  before_action :set_artist
+  before_action :set_song, only: [:show, :update, :destroy]
+
   def index
-    render json: @billboard.artists
+    render json: @artist.songs
   end
 
   def show
-    render json: @artist
+    render json: @song
   end
 
   def create
-    @artist = @billboard.artists.new(artist_params)
-      if @artist.save
-        render json: @artist
-      else
-        render json: { errors: artist.errors }, status: :unprocessable_entity
-      end
+    @song = @artist.songs.new(song_params)
+    if @song.save
+      render json: @song
+    else
+      render json: { errors: @song.errors }, status: :unprocessable_entity
+    end
   end
 
   def update
-    if @artist.update(artist_params)
-      render json:
+    if @song.update(song_params)
+      render json: @song
     else  
-      render json: {errors: @artist.errors}, status: :unprocessable_entity
+      render json: {errors: @song.errors}, status: :unprocessable_entity
     end
   end
 
   def destroy
-    @artist.destroy
-    render json: { message: "bye bye artist"}
+    @song.destroy
+    render json: { message: "Bye bye song" }
   end
 
   private 
-    def artist_params
-      params.require(:artist).permit(:artist_name, :desc, :plays_artist)
+    def song_params
+      params.require(:song).permit(:title, :album, :plays)
     end
     
-    def set_billboard 
-      @billboard = Billboard.find(params[:billboard_id])
-    end
   
     def set_artist
-      @artist = @billboard.artists.find(params[:id])
+      @artist = Artist.find(params[:artist_id])
+    end
+
+    def set_song
+      @song = @artist.songs.find(params[:id])
     end
 end
-

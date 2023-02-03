@@ -4,9 +4,9 @@ Rails.application.routes.draw do
       resources :artists
     end
 
-    # resources :artists, except: [:index, :show, :create, :update, :destroy] do
-    #   resources :songs
-    # end
+    resources :artists, except: [:index, :show, :create, :update, :destroy] do
+      resources :songs
+    end
 
   end
 end

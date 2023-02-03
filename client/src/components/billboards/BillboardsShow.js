@@ -39,7 +39,7 @@ const [editing, setEdit] = useState(false)
             state={{ artist_name }} // pass in read only info through the link
           >
             <button>
-              ArtistName
+              Artist info
             </button>
           </Link>
     </>

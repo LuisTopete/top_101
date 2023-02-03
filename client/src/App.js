@@ -5,6 +5,7 @@ import Nomatch from './components/shared/Nomatch';
 import Billboards from './components/billboards/Billboards';
 import MainNavbar from './components/shared/MainNavbar';
 import Artists from './components/artists/Artists';
+import Songs from './components/songs/Songs';
 
 const App = () => (
   <>
@@ -14,6 +15,7 @@ const App = () => (
       <Route path='/about' element={<About />} />
       <Route path='/billboards/Billboards' element={<Billboards />} />
       <Route path='/:billboardId/artists' element={<Artists/>} />
+      <Route path='/:artistId/songs' element={<Songs/>} />
       <Route path='/*' element={<Nomatch />} />
     </Routes>
   </>
